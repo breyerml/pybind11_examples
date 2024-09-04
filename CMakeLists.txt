@@ -5,7 +5,7 @@ project(pybdin11_examples)
 include(FetchContent)
 FetchContent_Declare(pybind11
         GIT_REPOSITORY https://github.com/pybind/pybind11.git
-        GIT_TAG v2.10.3
+        GIT_TAG v2.13.5
         GIT_SHALLOW TRUE
         QUIET
         )
@@ -29,6 +29,6 @@ target_compile_features(showcase PRIVATE cxx_std_17)
 target_include_directories(showcase PRIVATE ${pybind11_SOURCE_DIR}/include)
 
 # find required python libraries
-find_package(PythonLibs REQUIRED)
+find_package(Python REQUIRED)
 target_include_directories(showcase PRIVATE ${PYTHON_INCLUDE_DIRS})
 target_link_libraries(showcase PRIVATE ${GPU_SAMPLER_LIBRARY_NAME})
